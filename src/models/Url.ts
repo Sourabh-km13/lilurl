@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Document , Schema ,Model } from "mongoose";
 
 const urlSchema = new mongoose.Schema({
-    orignalUrl:{
+    originalUrl:{
         type:String,
         required:true,
         unique:true,
@@ -17,9 +17,9 @@ const urlSchema = new mongoose.Schema({
     timestamps:true
 })
 
-export interface Iurl extends Document{
-    orignalUrl : string,
+export interface IUrl extends Document{
+    originalUrl : string,
     shortUrl : string,
 }
-const Url: Model<Iurl> = mongoose.models.Url || mongoose.model<Iurl>('Url',urlSchema)
+const Url: Model<IUrl> = mongoose.models.Url || mongoose.model<IUrl>('Url',urlSchema)
 export default Url
