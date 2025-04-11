@@ -13,8 +13,3 @@ export async function POST (req:Request){
     const shortUrl = await shortenerService.shortenUrl(originalUrl);
     return NextResponse.json({shortUrl},{status:201});
 }
-export async function GET (){
-    const shortenerService = new UrlShortener();
-    const response = await shortenerService.getAllUrls();
-    return NextResponse.json({response})
-}
