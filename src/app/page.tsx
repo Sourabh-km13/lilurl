@@ -5,14 +5,8 @@ import { useState, useTransition } from "react"
 import { shortenUrl } from "./serverActions/ShortenUrlAction"
 
 export default function Home() {
-  const [OrignalUrl, setOrignalUrl] = useState(null)
-  const [ShortUrl, setShortUrl] = useState(null)
-  const [isPending, startTransition] = useTransition()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    startTransition(async () => {})
-  }
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
       <div className="p-10 bg-white rounded-lg shadow-2xl max-w-lg">
@@ -20,14 +14,14 @@ export default function Home() {
           {" "}
           Lil Url
         </h1>
-        <form action={shortenUrl} className="space-y-6">
+        <form method="POST" action={shortenUrl} className="space-y-6">
           <input
             type="text"
             placeholder="Enter Url "
-            name="OrignalUrl"
+            name="originalUrl"
             className="w-full bg-gray-950 p-4 rounded-lg shadow-2xl shadow-gray-500"
           />
-          <button className="outline-none bg-gray-900 text-gray-100 px-3 py-2 rounded-lg shadow-2xl shadow-gray-500">
+          <button type="submit" className="outline-none bg-gray-900 text-gray-100 px-3 py-2 rounded-lg shadow-2xl shadow-gray-500">
             Shorten
           </button>
         </form>

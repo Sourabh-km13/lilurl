@@ -1,9 +1,9 @@
-import { link } from "fs";
+import Link from "next/link";
+
 
 async function fetchUrls (){
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/Url`,{
         cache:'force-cache'
-
     })
     if(!response.ok){
         throw new Error('failed to fetch urls');
@@ -18,6 +18,7 @@ export default async function UrlList() {
     } catch(error) {
         console.log(error);
         return (
+            
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
                 <div className="p-10 bg-white rounded-lg shadow-2xl max-w-4xl w-full">
                     <h1 className="text-3xl font-bold mg-6 text-center text-gray-700">Error</h1>
@@ -28,8 +29,11 @@ export default async function UrlList() {
     }
 
     return (
+        <>
         <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900">
+            
             <div className="p-10 bg-gray-700 rounded-lg shadow-2xl max-w-4xl w-full">
+                <Link className="text-gray-200 w-full p-10" href={'/'}>Home</Link>
                 <h1 className="text-3xl font-bold mb-6 text-center text-gray-200">All Short Urls</h1>
                 <div className="overflow-x-auto">
 
@@ -75,5 +79,6 @@ export default async function UrlList() {
             </div>
 
         </div>
+        </>
     )
 }
