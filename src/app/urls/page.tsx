@@ -5,6 +5,7 @@ async function fetchUrls (){
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/Url`,{
         cache:'force-cache'
     })
+    
     if(!response.ok){
         throw new Error('failed to fetch urls');
     }
@@ -56,11 +57,11 @@ export default async function UrlList() {
                                 return (
                                     <tr key={url._id}>
                                         <td className="text-center">{url.originalUrl}</td>
-                                        <td className="text-center text-blue-400 hover:underline">
+                                        <td className="text-center">
                                             <a
                                                 href={`/${url.shortUrl}`}
                                                 target="_blank"
-                                                className="link link-primary"
+                                                className=" text-blue-400 hover:underline"
                                             >
                                                 {`${process.env.NEXT_PUBLIC_BASE_URL}/${url.shortUrl}`}
                                             </a>
