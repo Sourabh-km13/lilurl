@@ -28,4 +28,8 @@ export class UrlShortener{
     async getUrlByShortUrl (shortUrl:string){   
         return await this.urlRepository.getUrlByShortUrl(shortUrl);
     }
+    async getUrlByOriginalUrl (OriginalUrl:string){   
+        const response=  await this.urlRepository.getUrlByOriginalUrl(OriginalUrl);
+        return (response?.shortUrl)
+    }
 }
