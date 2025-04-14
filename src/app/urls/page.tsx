@@ -2,7 +2,7 @@ import Link from "next/link"
 
 async function fetchUrls() {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/Url`, {
-        cache: "force-cache",
+        cache: "no-cache"
     })
 
     if (!response.ok) {
