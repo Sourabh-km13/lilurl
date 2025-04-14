@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 async function fetchUrls() {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/Url`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/Url`, {
         cache: "force-cache",
     })
 
@@ -64,7 +64,7 @@ export default async function UrlList() {
                                                     rel="noopener noreferrer"
                                                     className="hover:underline"
                                                 >
-                                                    {`${process.env.NEXT_PUBLIC_BASE_URL}/${url.shortUrl}`}
+                                                    {`${process.env.NEXT_PUBLIC_BASE_URL}${url.shortUrl}`}
                                                 </Link>
                                             </td>
                                         </tr>

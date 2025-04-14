@@ -44,7 +44,7 @@ export default function Home() {
           <input
           ref={copyRef}
           readOnly={true}
-          value={state?`${process.env.NEXT_PUBLIC_BASE_URL}/${state.toString()}`:''}
+          value={state?`${process.env.NEXT_PUBLIC_BASE_URL}${state.toString()}`:''}
           type="text"
           placeholder="shortened Url"
           name="ShortUrl"

@@ -20,7 +20,7 @@ export class UrlShortener{
             url = await this.urlRepository.getUrlByShortUrl(shortUrl);
         }
         await this.urlRepository.createUrl(originalUrl,`urls/${shortUrl}`);
-        return shortUrl;
+        return `urls/${shortUrl}`;
     }
     async getAllUrls(){
         return await this.urlRepository.getAllUrls();
