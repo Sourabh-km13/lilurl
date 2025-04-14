@@ -44,18 +44,21 @@ export default function Home() {
           <input
           ref={copyRef}
           readOnly={true}
-          value={state?`${process.env.NEXT_PUBLIC_BASE_URL}/urls/${state.toString()}`:''}
+          value={state?`${process.env.NEXT_PUBLIC_BASE_URL}/${state.toString()}`:''}
           type="text"
           placeholder="shortened Url"
           name="ShortUrl"
-          className="w-full mt-4 bg-gray-950 p-4 rounded-lg shadow-2xl shadow-gray-500"
+          className={isPending?"bg-gray-950 w-full mt-4 animate-pulse p-4 rounded-lg shadow-2xl shadow-gray-500 border-2 border-pink-500 ":
+            "w-full mt-4 bg-gray-950 p-4 rounded-lg shadow-2xl shadow-gray-500"}
         />
+
         </form>
         <Button handleSubmit={handleCopySubmit} type="button" text={copy?'copied':'copy'}/>
       </div>
       <div className="shadow-2xl shadow-blue-700 m-6">
         <Link
-          className="text-center p-4 bg-pink-500 rounded-lg shadow-2xl shadow-blue-700  hover:bg-pink-500"
+          className="text-center p-4 bg-pink-500 rounded-lg shadow-2xl shadow-blue-700 
+          hover:bg-pink-600 transition-colors"
           href={"/urls"}
         >
           <span> view all shortened urls</span>
