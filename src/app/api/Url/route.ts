@@ -10,6 +10,5 @@ const fetchUrls = (async ()=>{
 export async function GET (){
     const urls = await fetchUrls();
     const response =NextResponse.json({urls});
-    response.headers.set('Cache-control','public, max-age=60,s-maxage=3600 stale-while-revalidate=59');
     return response;
 }
